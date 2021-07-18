@@ -1,0 +1,346 @@
+body {
+  font-family: "NEXONFootballGothicLA1", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1% 30% 29% 40%;
+  flex-wrap: wrap;
+  font-size: 15px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-content: center;
+  background-color: #ecf0f1;
+  color: #ecf0f1;
+  transition: color 0.5s ease-in-out;
+}
+
+@font-face {
+  font-family: "NEXONFootballGothicLA1";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicLA1.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Gereral (버튼, 인풋) */
+button {
+  justify-content: flex-end;
+  align-self: center;
+  width: 2em;
+  height: 3em;
+  padding: 1em;
+  margin: 0.8em;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+button:hover {
+  color: white;
+  background-color: rgba(107, 104, 99, 0.5);
+  transition: color 0.5s ease-in-out;
+}
+
+input {
+  font-family: "NEXONFootballGothicLA1", sans-serif;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+
+  border: none;
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 500px;
+  height: 80px;
+  text-align: center;
+  font-weight: bold;
+  align-self: center;
+  font-size: 1.5rem;
+  background-color: rgba(107, 104, 99, 0.5);
+  background: linear-gradient(
+    121.57deg,
+    #ffffff 18.77%,
+    rgba(255, 255, 255, 0.66) 60.15%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  caret-color: white;
+}
+
+input::placeholder {
+  background: linear-gradient(
+    121.57deg,
+    #ffffff 18.77%,
+    rgba(255, 255, 255, 0.66) 60.15%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+input:active,
+input:focus {
+  outline: none;
+}
+
+/* 그리드, 123456789 */
+.empty-grid {
+  grid-area: 2 / 1 / 5 / 2;
+}
+
+/* Main Clock */
+.clock {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    121.57deg,
+    #ffffff 18.77%,
+    rgba(255, 255, 255, 0.66) 60.15%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 5rem;
+  font-weight: bold;
+  max-height: 6em;
+  justify-self: center;
+  align-self: flex-start;
+}
+
+/* Greeting & Todo 전체 Grid */
+.greeting-todo-grid {
+  grid-area: 3 / 2 / 4 / 3;
+  position: relative;
+  justify-self: center;
+  margin-top: 2rem;
+}
+
+/* Input들을 담아야 함 */
+.greeting-todo-grid__input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.todo-form {
+  display: none;
+  animation: fadein 2s; /* 입력후 showing--fadein으로 보여짐 */
+}
+
+/* Greeting User(Form 입력 후), Grid 공유 */
+.greeting-form {
+  display: none; /* 입력후 remove.SHOWING으로 사라짐 */
+}
+
+.greeting-text {
+  text-align: center;
+}
+
+/* Pending, Finished 전체 Grid*/
+.pending-finished-grid {
+  grid-area: 4 / 2 / 5 / 3;
+  position: relative;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  padding: 0;
+  margin: 0 0 0 0;
+  grid-gap: 2em;
+}
+
+/* Encapsulate하는 Card */
+.pending-finished__card {
+  overflow: auto;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  border-radius: 5px;
+  min-width: 20vw;
+  min-height: 20vh;
+  max-height: 35vh;
+}
+
+.pending-finished__card::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+.pending-finished__card::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 165, 2, 0.4);
+  border: 2px solid rgb(255, 165, 2);
+  border-radius: 5px;
+}
+.pending-finished__card::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+  .pending-finished__card {
+    min-width: 40vw;
+    min-height: 20vh;
+  }
+}
+
+.pending-card {
+  background: rgb(183, 16, 14, 0.4);
+  border: 1px solid rgb(183, 16, 14);
+}
+
+.finished-card {
+  background: rgba(15, 85, 91, 0.4);
+  border: 1px solid rgb(15, 85, 91);
+}
+
+/* Title, <li>가 들어있는 섹션 */
+.pending-finished__section {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  grid-gap: 0.5px;
+}
+
+/* Pending & Finished Title */
+.pending-finished__section h2 {
+  text-align: center;
+}
+
+/* <hr>, 흰색선 */
+.pending-finished__line {
+  color: white;
+  width: 60px;
+  position: relative;
+  bottom: 25px;
+}
+
+/* <li>: 각각 Todo Container */
+.pending-finished__list li {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50px;
+  width: 300px;
+  position: relative;
+  bottom: 3rem;
+}
+
+/* Todo Text */
+.pending-finished__list span {
+  color: white;
+  align-self: center;
+  flex: 7;
+  max-width: 200px;
+}
+/* Todo Button */
+.pending-finished__list button {
+  flex: 1;
+}
+
+/* Weather */
+.weather {
+  grid-area: 1 / 1 / 2 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  grid-gap: 10px;
+  color: rgba(0, 0, 0, 0.75);
+  /* color: rgb(107, 104, 99); */
+  font-size: 20px;
+  font-weight: 600;
+  text-align: right;
+  margin: 5px 15px 0 0;
+}
+
+/* Alert */
+
+.alert {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: -150px;
+  background: rgba(255, 219, 155, 0.4);
+  padding: 1rem 2rem;
+  max-width: 15vw;
+  max-height: 9vh;
+  border-radius: 5px;
+  border-left: 4px solid rgba(255, 165, 2, 0.4);
+}
+
+.alert__title {
+  grid-area: 1 / 1 / 2 / 2;
+  justify-self: flex-start;
+  align-self: center;
+  font-weight: bold;
+  color: rgba(183, 16, 14, 0.5);
+}
+
+.alert__close__grid {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.alert__close__button {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  position: relative;
+  top: 2.5px;
+}
+
+.alert__close__button:hover {
+  background-color: rgba(183, 16, 14, 0.5);
+}
+
+.alert__message {
+  grid-area: 2 / 1 / 3 / 3;
+  justify-self: flex-start;
+}
+
+/* Fade In 효과: 배경이미지, Input
+모든 변수들이 다 선언된 이후에 필요함. 즉 맨 마지막에 배치할것 */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 사진이 글 뒤로 가게끔 */
+  z-index: -1;
+  /* 글 먼저 뜨고 사진이 나중에 나오는 게 보기 싫다
+    그래서 사진이 0.5 간격을 두고 그라데이션 하게 */
+  animation: fadein 1s linear;
+}
+
+/* Todo, Greeting 안 보이게 */
+.showing {
+  display: grid;
+}
+
+.showing--fadein {
+  animation: fadein 3s;
+}

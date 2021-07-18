@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Momentum Clone</title>
+    <script src="https://kit.fontawesome.com/1dd0872740.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="empty-grid"></div>
+    <!-- Clock -->
+    <div class="clock">
+        <h1 class="clock__title">
+            00:00
+        </h1>
+    </div>
+    
+    <!-- Greeting, Todo Form -->
+    <section class="greeting-todo-grid">
+        <!-- Greeting -->
+        <div class="greeting-todo-grid__input-box">
+            <form action="" class="form greeting-form">
+                <input class="input greeting-input" type="text" placeholder="What is your name?" >
+            </form>
+            <h1 class="greeting greeting-text" ></h1>
+        </div>
+        <!-- Todo -->
+        <div class="greeting-todo-section__input-box">
+            <form action="" class="form todo-form">
+                <input class="input todo-input" type="text" placeholder="Write a to do" 
+                maxlength="19" oninput="countIfTextMoreThanMaxLength(this);">
+            </form>
+        </div>
+        <!-- Alert -->
+        <div class="alert alert-maxlength">
+            <div class="alert__title">
+                <span class="fas fa-exclamation-circle"></span>
+                Warning
+            </div>
+            <div class="alert__close">
+                <div class="alert__close__grid">
+                    <button class="button alert__close__button">
+                        <span class="fas fa-times"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="alert__message">
+                Shorter, The better!
+            </div>
+        </div>
+    </section>
+    <!-- Pending, Finished -->
+    <section class="pending-finished-grid">
+        <!-- Pending -->
+        <div class="pending-finished__card pending-card">
+            <div class="pending-finished__section">
+                <h2>Pending</h2>
+                <hr class="pending-finished__line"/>
+                <ul class="pending-finished__list pending"></ul>
+            </div>
+        </div>
+        <!-- Finish -->
+        <div class="pending-finished__card finished-card">
+            <div class="pending-finished__section">
+                <h2>Finished</h2>
+                <hr class="pending-finished__line"/>
+                <ul class="pending-finished__list finished"></ul>
+            </div>
+        </div>
+    </section>
+    <!-- Weather -->
+    <div class="weather">
+        <div class="weather__place"></div>
+        <div class="weather__temperature"></div>
+    </div>
+
+
+
+    <!-- Javascript Section -->
+    <script src="clock.js"></script>
+    <script src="greeting.js"></script>
+    <script src="pending_finish.js"></script>
+    <script src="background.js"></script>
+    <script src="weather.js"></script>
+    <script src="alert.js"></script>
+</body>
+</html>
