@@ -5,6 +5,9 @@ This is to announce the completion of Javascript code challange form Nomad Coder
 The current stable version is v0.0.1.
 
 # Overview
+![Momentum-gif](https://user-images.githubusercontent.com/58083434/126057509-6426d913-ca34-4ba5-9e86-811d2b76c9f3.gif)
+
+
 ## Code Challenge
 ## ES6
 - Destructuring
