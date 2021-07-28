@@ -4,7 +4,12 @@
 This is to announce the completion of Javascript code challange form Nomad Coder. This repository also contains tracks of learning ES6 grammar.
 The current stable version is v0.0.1.
 
+This project started from a plain CSS-less todo-list tutorial, improved after to be a Momentum Clone. The most well-marked new feature is the separated pending and finished list. where todos are transferable onto another section, data persistence supported by Local Storage. Other new features are Alert, Weather and background image API which will be reusable at any needed time, name form and clock with cool CSS.
+
 # Overview
+![Momentum-gif](https://user-images.githubusercontent.com/58083434/126057509-6426d913-ca34-4ba5-9e86-811d2b76c9f3.gif)
+
+
 ## Code Challenge
 ## ES6
 - Destructuring
