@@ -5,14 +5,15 @@ body {
   grid-template-rows: 1% 30% 29% 40%;
   flex-wrap: wrap;
   font-size: 15px;
-  background-size: cover;
   margin: 0;
   padding: 0;
   justify-content: center;
   align-content: center;
   background-color: #ecf0f1;
+  background-size: contain;
   color: #ecf0f1;
   transition: color 0.5s ease-in-out;
+  overflow-y: scroll;
 }
 
 @font-face {
@@ -107,13 +108,14 @@ input:focus {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 5rem;
   font-weight: bold;
-  max-height: 6em;
+  margin: 0;
+  padding: 0;
 }
 
 .clock__title {
   text-align: center;
+  font-size: 7rem;
 }
 
 /* Greeting & Todo 전체 Grid */
@@ -121,7 +123,6 @@ input:focus {
   grid-area: 3 / 2 / 4 / 3;
   position: relative;
   justify-self: center;
-  margin-top: 2rem;
 }
 
 /* Input들을 담아야 함 */
@@ -160,14 +161,20 @@ input:focus {
 
 /* Encapsulate하는 Card */
 .pending-finished__card {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
   display: flex;
   justify-self: center;
   justify-content: center;
   border-radius: 5px;
-  min-width: 20vw;
-  min-height: 20vh;
-  max-height: 35vh;
+  width: 35vw;
+  height: 35vh;
+}
+
+@media (max-height: 700px) {
+  .pending-finished__card {
+    height: 30vh;
+  }
 }
 
 .pending-finished__card::-webkit-scrollbar {
@@ -324,7 +331,8 @@ input:focus {
 }
 
 .bgImage {
-  position: absolute;
+  /*! fixed라고 해줘야지 스크롤로 넘어가도 이미지가 고정이 된다! */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -334,6 +342,7 @@ input:focus {
   /* 글 먼저 뜨고 사진이 나중에 나오는 게 보기 싫다
     그래서 사진이 0.5 간격을 두고 그라데이션 하게 */
   animation: fadein 1s linear;
+  background-attachment: fixed;
 }
 
 /* Todo, Greeting 안 보이게 */
@@ -399,13 +408,18 @@ input:focus {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
+  }
+
+  .pending-finished__card {
+    width: 25rem;
   }
 }
 
 @media (max-width: 520px) {
   input {
-    width: 22rem;
+    width: 25rem;
   }
 }
