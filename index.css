@@ -5,8 +5,7 @@ body {
   grid-template-rows: 1% 30% 29% 40%;
   flex-wrap: wrap;
   font-size: 15px;
-  width: 100vw;
-  height: 100vh;
+  background-size: cover;
   margin: 0;
   padding: 0;
   justify-content: center;
@@ -111,8 +110,10 @@ input:focus {
   font-size: 5rem;
   font-weight: bold;
   max-height: 6em;
-  justify-self: center;
-  align-self: flex-start;
+}
+
+.clock__title {
+  text-align: center;
 }
 
 /* Greeting & Todo 전체 Grid */
@@ -256,7 +257,6 @@ input:focus {
   /* color: rgb(107, 104, 99); */
   font-size: 20px;
   font-weight: 600;
-  text-align: right;
   margin: 5px 15px 0 0;
 }
 
@@ -343,4 +343,69 @@ input:focus {
 
 .showing--fadein {
   animation: fadein 3s;
+}
+
+@media (max-width: 760px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 1em;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .empty-grid {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .weather {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .clock {
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .clock__title {
+    font-size: 4rem;
+  }
+
+  .greeting-todo-grid {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin: 0 0 2rem;
+    padding: 0;
+  }
+
+  .pending-finished-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  input {
+    width: 22rem;
+  }
 }
