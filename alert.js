@@ -1,14 +1,22 @@
 const alertSection = document.querySelector(".alert"),
     alertExitButton = alertSection.querySelector('.alert__close__button')
 
-const CLASS_SHOWING = "showing";
+const MAX_LENGTH = 18;
+
+function countIfTextMoreThanMaxLength(text) {
+    if(text.value.length > MAX_LENGTH)  {
+        alertSection.classList.add(CLASS_SHOWING);
+    } else {
+        alertSection.classList.remove(CLASS_SHOWING);
+    }
+}
+
 
 function handleAlertClose() {
     alertSection.classList.remove(CLASS_SHOWING);
 }
 
 function init() {
-    alertSection.classList.add(CLASS_SHOWING);
     alertExitButton.addEventListener('click', handleAlertClose);
 }
 
