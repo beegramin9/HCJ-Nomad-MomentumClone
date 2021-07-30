@@ -274,7 +274,7 @@ input:focus {
   display: none;
   position: absolute;
   top: 5px;
-  right: -150px;
+  right: -100px;
   background: rgba(255, 219, 155, 0.4);
   padding: 1rem 2rem;
   max-width: 15vw;
