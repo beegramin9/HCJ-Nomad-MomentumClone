@@ -7,7 +7,7 @@ const API_KEY = "9f4fbf8791e2a8ae482f56cb7ae14ecd"
 React가 이거임. JS이 데이터를 계속 가져오고 있기 때문이다. */
 
 function getWeather(lat,lng) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&`)
     /* 섭씨온도 metric */
     // Promise화
     /* response는 string으로 들어옴. json으로 만들어주자 */
