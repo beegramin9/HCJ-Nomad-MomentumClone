@@ -101,13 +101,14 @@ input:focus {
   grid-area: 2 / 2 / 3 / 3;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
+  /* background: linear-gradient(
     121.57deg,
     #ffffff 18.77%,
     rgba(255, 255, 255, 0.66) 60.15%
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  color: rgba(255, 255, 255, 0.75);
   font-weight: bold;
   margin: 0;
   padding: 0;
@@ -311,12 +312,13 @@ input:focus {
 }
 
 .alert__close__button:hover {
-  background-color: rgba(183, 16, 14, 0.5);
+  background-color: rgba(183, 16, 14, 0.8);
 }
 
 .alert__message {
   grid-area: 2 / 1 / 3 / 3;
   justify-self: flex-start;
+  color: rgba(183, 16, 14, 0.45);
 }
 
 /* Fade In 효과: 배경이미지, Input
@@ -416,10 +418,22 @@ input:focus {
   .pending-finished__card {
     width: 25rem;
   }
+
+  .alert {
+    position: absolute;
+    bottom: 5px;
+    right: -50px;
+  }
 }
 
 @media (max-width: 520px) {
   input {
     width: 25rem;
+  }
+
+  .alert {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
   }
 }
