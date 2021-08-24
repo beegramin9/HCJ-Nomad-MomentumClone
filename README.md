@@ -1,6 +1,6 @@
 ## Project Status
 ![Generic badge](https://img.shields.io/badge/build-passing-green.svg)
-<br/> [Link](https://beegramin9.github.io/HCJ-Nomad-MomentumClone/). try!
+<br/> [Github page link](https://beegramin9.github.io/HCJ-Nomad-MomentumClone/). try!
 
 ## Overview
 ![Momentum-gif](https://user-images.githubusercontent.com/58083434/126057509-6426d913-ca34-4ba5-9e86-811d2b76c9f3.gif)
