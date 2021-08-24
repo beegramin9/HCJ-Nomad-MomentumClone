@@ -6,9 +6,9 @@
 
 
 ## Technology Stack
-<img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/></a>&nbsp;
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/></a>&nbsp;
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/></a>&nbsp;
+<img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/></a>
 
 ## Outline
 &nbsp;This project started from a plain CSS-less todo-list tutorial, improved after to be a Momentum Clone. The most well-marked new feature is the separated pending and finished list. where todos are transferable onto another section, data persistence supported by Local Storage. Other new features are Alert, Weather and background image API which will be reusable at any needed time, name form and clock with cool CSS.
