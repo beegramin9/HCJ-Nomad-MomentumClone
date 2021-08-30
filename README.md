@@ -22,4 +22,104 @@ CRUD 기능을 구현한 스태틱 Todo-list 웹서비스입니다. 즉, 서버�
 
 
 ## Main Feature Code
+- localStorage <br/>
+> (/pending_finish.js) <br/>
+> localStorage로 Data Persistency 사용 <br/>
+```js
+const LOADSAVE = {
+    // Pending Section
+    saveToDos : function (toDos) {
+        localStorage.setItem('toDos' ,JSON.stringify(toDos))
+    },
+    loadToDos : function () {
+        const currentToDos = localStorage.getItem('toDos')
+        if (currentToDos) {
+            const parsedToDos = JSON.parse(currentToDos)
+            parsedToDos.forEach( toDo => createToDo(toDo.text) )
+        }
+    },
+    // Finished Section
+    saveFinToDos : function (finToDos) {
+        localStorage.setItem('finToDos' ,JSON.stringify(finToDos))
+    },
 
+    loadFinToDos : function () {
+        const currentFinToDos = localStorage.getItem('finToDos')
+        if (currentFinToDos) {
+            const parsedFinToDos = JSON.parse(currentFinToDos)
+            parsedFinToDos.forEach( finToDo => createFinToDo(finToDo.text) )
+        }
+    }
+}
+```
+- Pending 섹션 Create, Delete 구현 <br/>
+> (/pending_finish.js) <br/>
+```js
+const pending = document.querySelector(".pending")
+const finished = document.querySelector(".finished")
+
+// Create
+const createToDo = function (text) { // text: form에서 입력받은 값
+    const finBtn = document.createElement('button'); // Finish 버튼
+    finBtn.innerHTML = "&#10004"; //✅
+    finBtn.addEventListener('click', finishTodo);
+    
+    const delBtn = document.createElement('button'); // Delete 버튼
+    delBtn.innerHTML = "❌";
+    delBtn.addEventListener('click', deleteToDo);
+    
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.innerText = text;
+    li.appendChild(span);
+    li.appendChild(finBtn);
+    li.appendChild(delBtn);
+    pending.appendChild(li);
+
+    const toDoObj = {
+        text : text,
+        id : toDos.length + 1 // 요소가 하나씩 더 들어올 때마다 id를 증가시킬 수 있는 좋은 로직
+    }
+    li.id = toDos.length + 1; // 지울 때 어떤 li를 지워야 할 지도 알아야 하니까 li에도 id가 필요하다
+    
+
+    toDos.push(toDoObj);
+    LOADSAVE.saveToDos(toDos); // LocalStorage에 저장
+}
+
+// Delete 
+const deleteToDo = function (event) {
+
+    const btn = event.target;
+    const li = btn.parentNode;
+
+    pending.removeChild(li) // Step 1.HTML에서 지우기
+    const deletedTodos = toDos.filter( toDo => { // Step 2. ToDos Array Update
+        return toDo.id !== parseInt(li.id) // 방금 삭제된 toDo id (=parseInt(li.id) 제외 모든 toDo를 리턴한다
+    })
+    toDos = deletedTodos
+
+    LOADSAVE.saveToDos(toDos); Step 3. LocalStorage에 저장
+}
+```
+- Pending 섹션 <=> Finish 섹션 데이터 transfer <br/>
+> (/pending_finish.js) <br/>
+
+```js
+const reTodo = function (event) {
+    const btn = event.target;  // Step 1.HTML에서 지우기
+    const li = btn.parentNode;
+    finished.removeChild(li)\
+
+    const deletedFinTodos = finToDos.filter( finToDo => { 
+        return finToDo.id !== parseInt(li.id)
+    })
+    finToDos = deletedFinTodos
+    
+    LOADSAVE.saveFinToDos(finToDos); // Step 3. LocalStorage에서 Delete
+    
+    const finText = li.querySelector('span').innerText // 4. pending 섹션으로 다시 돌려 놓기
+    createToDo(finText);
+}
+
+```
